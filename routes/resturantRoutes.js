@@ -9,10 +9,6 @@ router.post('/search-radius', authMiddleware, getresturantsByRadius);
 router.post('/search-radius-range', authMiddleware, getresturantsByRadiusRange);
 router.post('/default-data', async(req, res) => {
     try {
-        // for (const resturant of resturantsList) {
-        //     const newResturant = new Resturant({ resturant });
-        //     await newResturant.save();
-        // }
         await Resturant.insertMany(resturantsList);
         res.status(200).send("Defautl data has been added to resturants collection in mongoDB");
     } catch (error) {
