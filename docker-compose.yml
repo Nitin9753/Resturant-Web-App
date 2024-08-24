@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - JWT_SECRET=qwertyuiop
+      - MONGODB_URI=mongodb://mongo_db:27017/resturant
+    depends_on:
+      - mongo_db
+
+  mongo_db:
+    image: mongo:latest
+    container_name: database_container
+    restart: always
+    ports:
+      - "27017:27017"
