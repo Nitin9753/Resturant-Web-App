@@ -31,16 +31,17 @@ exports.getresturantsByRadius = async(req, res) => {
                 { "location.latitude": { $gt: -90, $lt: 90 } },
             ]
         });
-        console.log(resturants);
+        // console.log(resturants);
         const allResturants = [];
         for (const resturant of resturants) {
             // console.log(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             const distance = calculateDistance(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             // console.log('the value of the distance', parseInt(distance));
-            if (parseInt(distance) <= radius) {
+            if (distance <= (radius / 1000)) {
                 allResturants.push(resturant);
             }
         }
+
         // console.log(allResturants.length);
 
         const response = allResturants.map(r => ({
@@ -72,7 +73,7 @@ exports.getresturantsByRadiusRange = async(req, res) => {
             // console.log(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             const distance = calculateDistance(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             // console.log('the value of th distance', parseInt(distance));
-            if (distance >= minimumDistance && distance <= maximumDistance) {
+            if (distance >= (minimumDistance / 1000) && distance <= (maximumDistance / 1000)) {
                 allResturants.push(resturant);
             }
         }
@@ -84,7 +85,7 @@ exports.getresturantsByRadiusRange = async(req, res) => {
             numberOfRatings: r.ratings.length
         }));
 
-        res.send(response);
+        res.status(200).send(response);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);

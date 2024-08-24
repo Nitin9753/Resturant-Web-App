@@ -106,7 +106,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"longitude\": 74.000000,\r\n    \"latitude\": 53.000000,\r\n    \"radius\": 100\r\n}",
+					"raw": "{\r\n    \"longitude\": -74.005964,\r\n    \"latitude\": 40.712767,\r\n    \"minimumDistance\": 0,\r\n    \"maximumDistance\": 100\r\n    // distanace in meteres\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -114,7 +114,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/resturants/search-radius",
+					"raw": "http://localhost:3000/api/resturants/search-radius-range",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -123,7 +123,7 @@
 					"path": [
 						"api",
 						"resturants",
-						"search-radius"
+						"search-radius-range"
 					]
 				}
 			},
