@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "f05681ee-6b2a-44fe-8664-416bffefe66f",
+		"name": "Resturants",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28840954"
+	},
+	"item": [
+		{
+			"name": "create-default-resturant-collection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/resturants/default-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"resturants",
+						"default-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-resturant-in-db",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tropical Paradise\",\r\n    \"description\": \"Exotic flavors inspired by the tropics.\",\r\n    \"location\": {\r\n        \"longitude\": 151.209296,\r\n        \"latitude\": -33.868820\r\n    },\r\n    \"ratings\": [3]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/resturants/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"resturants",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-resturant-based-on-radius",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmM5ZjQ4N2MzOTg0ZTFmM2I5Mzk5OTkiLCJpYXQiOjE3MjQ1MTM0MzcsImV4cCI6MTcyNDUzMTQzN30.FNKXF3Ap3TnnB7IosctCF5hHOA45lkqwVqgbDYljtW8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": 74.000000,\r\n    \"latitude\": 53.000000,\r\n    \"radius\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/resturants/search-radius",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"resturants",
+						"search-radius"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-resturant-based-on-max-min-radius",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmM5ZjQ4N2MzOTg0ZTFmM2I5Mzk5OTkiLCJpYXQiOjE3MjQ1MTM0MzcsImV4cCI6MTcyNDUzMTQzN30.FNKXF3Ap3TnnB7IosctCF5hHOA45lkqwVqgbDYljtW8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": 74.000000,\r\n    \"latitude\": 53.000000,\r\n    \"radius\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/resturants/search-radius",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"resturants",
+						"search-radius"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
