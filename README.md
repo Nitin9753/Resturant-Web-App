@@ -1,4 +1,4 @@
-# Steps to run the project
+# Steps to run the project in local environment
     1. Clone the Github repository
     2. Make sure you have docker
     3. Run docker-compose up --build command in the terminal

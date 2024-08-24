@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const resturantRoutes = require('./routes/resturantRoutes');
 const authRoutes = require('./routes/authRoutes');
 const dotenv = require('dotenv').config();
-
+const cors = require("cors");
 const app = express();
 app.use(express.json());
-
+app.use(cors({ origin: true }));
 app.use('/api/resturants', resturantRoutes);
 app.use('/api/auth', authRoutes);
 
