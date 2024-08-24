@@ -4,8 +4,8 @@ const resturantSchema = new mongoose.Schema({
     name: { type: String, require: true },
     description: { type: String, require: true },
     location: {
-        latitude: { type: Number, require: true },
-        longitude: { type: Number, require: true }
+        longitude: { type: Number, require: true },
+        latitude: { type: Number, require: true }
     },
     ratings: [{ type: Number }]
 });

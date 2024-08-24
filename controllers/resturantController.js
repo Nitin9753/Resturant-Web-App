@@ -27,17 +27,17 @@ exports.getresturantsByRadius = async(req, res) => {
         const { latitude, longitude, radius } = req.body;
         const resturants = await Resturant.find({
             $and: [
-                { "location.longitude": { $gt: -90, $lt: 90 } },
-                { "location.latitude": { $gt: -180, $lt: 180 } },
+                { "location.longitude": { $gt: -180, $lt: 180 } },
+                { "location.latitude": { $gt: -90, $lt: 90 } },
             ]
         });
-        // console.log(resturants);
+        console.log(resturants);
         const allResturants = [];
         for (const resturant of resturants) {
             // console.log(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             const distance = calculateDistance(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
-            // console.log('the value of th distance', distance);
-            if (distance <= radius) {
+            // console.log('the value of the distance', parseInt(distance));
+            if (parseInt(distance) <= radius) {
                 allResturants.push(resturant);
             }
         }
@@ -63,15 +63,15 @@ exports.getresturantsByRadiusRange = async(req, res) => {
         const { latitude, longitude, minimumDistance, maximumDistance } = req.body;
         const resturants = await Resturant.find({
             $and: [
-                { "location.longitude": { $gt: -90, $lt: 90 } },
-                { "location.latitude": { $gt: -180, $lt: 180 } },
+                { "location.longitude": { $gt: -180, $lt: 180 } },
+                { "location.latitude": { $gt: -90, $lt: 90 } },
             ]
         });
         const allResturants = [];
         for (const resturant of resturants) {
             // console.log(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
             const distance = calculateDistance(latitude, longitude, resturant.location.latitude, resturant.location.longitude);
-            // console.log('the value of th distance', distance);
+            // console.log('the value of th distance', parseInt(distance));
             if (distance >= minimumDistance && distance <= maximumDistance) {
                 allResturants.push(resturant);
             }
