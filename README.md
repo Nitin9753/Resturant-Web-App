@@ -1,4 +1,11 @@
-# Steps to run the project in local environment
+# To run the web app directly
+    1. Clone the repository
+    2. Edit dockerfile and add env key as
+        # ENV MONGODB_URI=mongodb://127.0.0.1:27017/resturant -- replace the mongoURI with your db url
+        # ENV JWT_SECRET=qwertyuiop
+    3. build the docker image using "docker build -t resturant-webapp ."
+    4. Run the docker image by "docker run -it -p 3000:3000 resturant-webapp"
+# Steps to run the project in docker environment and setup mongoDB in docker environment
     1. Clone the Github repository
     2. Make sure you have docker
     3. Run docker-compose up --build command in the terminal
